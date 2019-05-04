@@ -4,7 +4,7 @@ from std_msgs.msg import Float32
 from random import randint
 
 
-ROS_PUBLISHER_NAME = 'gesture_recognition'
+ROS_PUBLISHER_NAME = 'dummy_distance'
 
 def talker():
     rospy.loginfo('Initializing and starting ' + ROS_PUBLISHER_NAME + ' topic.')
