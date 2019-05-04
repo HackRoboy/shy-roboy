@@ -1,9 +1,10 @@
 import rospy
 from std_msgs.msg import Float32
 from random import gauss
+import time
 
 
-ROS_PUBLISHER_NAME = '/shy_roboy/nearest_distance'
+ROS_PUBLISHER_NAME = 'shy_roboy/nearest_distance'
 
 def talker():
     rospy.loginfo('Initializing and starting ' + ROS_PUBLISHER_NAME + ' topic.')
@@ -20,7 +21,9 @@ def talker():
     rospy.loginfo(ROS_PUBLISHER_NAME + ' topic has been initialized.')
 
     while not rospy.is_shutdown():
-        distance = 1.0 + gauss(0, 0.1)
+
+        mean = 0.5 if int(time.time()) % 10 > 5 else 3.0
+        distance = mean + gauss(0, 0.1)
         rospy.loginfo(distance)
         publisher.publish(distance)
         rate.sleep()
