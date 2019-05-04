@@ -24,7 +24,7 @@ def main(args=None):
     rclpy.init()
     shout_node = rclpy.create_node('shouter')
     shout_node.create_subscription(Int8, 'shy_roboy/state',  process_state
-    while rclpy.ok()
+    while rclpy.ok():
         rclpy.spin_once(shout_node)
     shout_node.destroy_node()
     rclpy.shutdown()
