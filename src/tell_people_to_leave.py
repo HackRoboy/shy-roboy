@@ -54,7 +54,7 @@ class TellPeopleToLeave(object):
 
 
 	def shout(self):
-		# shout_node.getlogger().info('\tSHOUT')
+		shout_node.getlogger().info('\tSHOUT')
   #       	client = shout_node.create_client(Talk,'/roboy/cognition/speech/synthesis/talk')
 		# request = Talk.Request()
   #       	request.text = "Please don't touch me"
