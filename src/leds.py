@@ -127,6 +127,16 @@ def mode_simple_callback(msg):
         leds.mode=2
         print "tail"
         leds.tail_clock(0)
+    elif (msg.data == 3):
+        leds.mode=2
+        for i in range 3:
+            leds.set_color(255, 0, 0, 20)
+            print "puls red"
+            leds.dimming_puls(1)
+
+            leds.set_color(0, 0, 255, 20)
+            print "puls blue"
+            leds.dimming_puls(1)
     
 def led_listener():
     rospy.init_node('roboy_led_control')
