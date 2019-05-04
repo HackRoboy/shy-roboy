@@ -1,10 +1,9 @@
 import rospy
-from std_msgs.msg import String
 from std_msgs.msg import Float32
 from random import randint
 
 
-ROS_PUBLISHER_NAME = 'dummy_distance'
+ROS_PUBLISHER_NAME = 'distance_publisher'
 
 def talker():
     rospy.loginfo('Initializing and starting ' + ROS_PUBLISHER_NAME + ' topic.')
@@ -29,5 +28,5 @@ def talker():
 if __name__ == '__main__':
     try:
         talker()
-    except rospy.ROSInterruptException:
-        pass
+    except Exception as e:
+        print e
