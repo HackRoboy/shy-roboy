@@ -2,6 +2,7 @@
 
 import rospy
 from std_msgs.msg import Float32
+from std_msgs.msg import Int8
 from enum import Enum
 import time
 
@@ -20,6 +21,7 @@ class TellPeopleToLeave(object):
 	def __init__(self):
 		self._state = States.IDLE
 		self._t = time.time()
+		self._publisher = None
 
 	def process_distance_measure(self, data):
 		distance = data.data
@@ -42,34 +44,22 @@ class TellPeopleToLeave(object):
 			if distance > threshold:
 				newstate = States.IDLE
 			elif time.time() - self._t >= delay_shout_again:
-				newstate = SHOUT
+				newstate = States.SHOUT
 
 		if newstate != self._state:
-			shout_node.getlogger().info('New state: {}'.format(newstate))
-
-		if newstate == States.SHOUT:
-			self.shout()
+			rospy.loginfo('New state: {}'.format(newstate))
+			self._publisher.publish(Int8(States(self._state)))
 
 		self._state = newstate
 
-
-	def shout(self):
-		shout_node.getlogger().info('\tSHOUT')
-  #       	client = shout_node.create_client(Talk,'/roboy/cognition/speech/synthesis/talk')
-		# request = Talk.Request()
-  #       	request.text = "Please don't touch me"
-  #       	future = client.call_async(request) 
-  #       	rclpy.spin_until_future_complete(shout_node, future)
-
-		        
+	def start_listener(self):
+		rospy.init_node('shy_states')
+		self._publisher = rospy.Publisher('shy_roboy/state', Int8, queue_size=10)
+		self._publisher.publish (Int8(States(self._state)))
+		rospy.Subscriber('shy_roboy/nearest_distance', Float32, self.process_distance_measure)
+		
 
 if __name__ == '__main__':
-    tptl = TellPeopleToLeave()
-    rclpy.init()
-    # global shout_node = rclpy.create_node('tell_people_to_leave')
-    # shout_node.create_subscription(Float32, 'shy_roboy/nearest_distance',  self.process_distance_measure)
-    # while rclpy.ok()
-    #     rclpy.spin_once(shout_node)
-    # shout_node.destroy_node()
-    # rclpy.shutdown()
-
+	tptl = TellPeopleToLeave()
+	tptl.start_listener()
+	rospy.spin()
