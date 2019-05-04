@@ -129,7 +129,7 @@ def mode_simple_callback(msg):
         leds.tail_clock(0)
     elif (msg.data == 3):
         leds.mode=2
-        for i in range 3:
+        for i in range(3):
             leds.set_color(255, 0, 0, 20)
             print "puls red"
             leds.dimming_puls(1)
