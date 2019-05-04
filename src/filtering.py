@@ -48,8 +48,8 @@ class DistanceFiltering(object):
 
 		if newstate != self._state:
 			rospy.loginfo('New state: {}'.format(newstate))
-			self._publisher.publish(Int8(States(self._state)))
 
+		self._publisher.publish(Int8(States(self._state.value)))
 		self._state = newstate
 
 	def start_listener(self):
