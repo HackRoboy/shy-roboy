@@ -55,6 +55,12 @@ class TellPeopleToLeave(object):
 
 	def shout(self):
 		shout_node.getlogger().info('\tSHOUT')
+        	client = shout_node.create_client(Talk,'/roboy/cognition/speech/synthesis/talk')
+		request = Talk.Request()
+        	request.text = "Please don't touch me"
+        	future = client.call_async(request) 
+        	rclpy.spin_until_future_complete(shout_node, future)
+
 		        
 
 if __name__ == '__main__':
