@@ -54,22 +54,22 @@ class TellPeopleToLeave(object):
 
 
 	def shout(self):
-		shout_node.getlogger().info('\tSHOUT')
-        	client = shout_node.create_client(Talk,'/roboy/cognition/speech/synthesis/talk')
-		request = Talk.Request()
-        	request.text = "Please don't touch me"
-        	future = client.call_async(request) 
-        	rclpy.spin_until_future_complete(shout_node, future)
+		# shout_node.getlogger().info('\tSHOUT')
+  #       	client = shout_node.create_client(Talk,'/roboy/cognition/speech/synthesis/talk')
+		# request = Talk.Request()
+  #       	request.text = "Please don't touch me"
+  #       	future = client.call_async(request) 
+  #       	rclpy.spin_until_future_complete(shout_node, future)
 
 		        
 
 if __name__ == '__main__':
     tptl = TellPeopleToLeave()
     rclpy.init()
-    global shout_node = rclpy.create_node('tell_people_to_leave')
-    shout_node.create_subscription(Float32, 'shy_roboy/nearest_distance',  self.process_distance_measure)
-    while rclpy.ok()
-        rclpy.spin_once(shout_node)
-    shout_node.destroy_node()
-    rclpy.shutdown()
+    # global shout_node = rclpy.create_node('tell_people_to_leave')
+    # shout_node.create_subscription(Float32, 'shy_roboy/nearest_distance',  self.process_distance_measure)
+    # while rclpy.ok()
+    #     rclpy.spin_once(shout_node)
+    # shout_node.destroy_node()
+    # rclpy.shutdown()
 
