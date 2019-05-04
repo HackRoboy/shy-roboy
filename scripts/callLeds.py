@@ -13,12 +13,8 @@ previous_state = 1
 
 def callback(data):
     global last_publish_time, previous_state
-    rospy.loginfo('Initializing and starting ' + ROS_PUBLISHER_NAME + ' topic.')
-    
     # ROS publisher
     publisher = rospy.Publisher(ROS_PUBLISHER_NAME, Int32, queue_size=10)
-
-    rospy.loginfo(ROS_PUBLISHER_NAME + ' topic has been initialized.')
 
     if (data.data == 2 or data.data == 3) and (time.time()-last_publish_time) > 6:
         rospy.loginfo('Sending change LED command.')
