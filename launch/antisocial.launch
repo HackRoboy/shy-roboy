@@ -1,0 +1,5 @@
+<launch>
+  <node name="image_converter" pkg="shy_roboy" type="getCamImg.py" />
+  <node name="shy_states" pkg="shy_roboy" type="filtering.py" />
+  <node name="led_activate_listener" pkg="shy_roboy" type="callLeds.py" />
+</launch>
