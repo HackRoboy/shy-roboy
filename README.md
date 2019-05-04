@@ -6,7 +6,7 @@ HackRoboy Spring 2019 project. Roboy avoids contact with people and tells them t
 topic | datatype | description
 --- | --- | ---
 `shy_roboy/nearest_distance` | Float32 | Mean of the closest points to camera (depends on the threshold)
-`shy_roboy/state` | Int8 | 0: IDLE, 1: OCCURED, 2: SHOUT, 3: WATCH (an object was altready asked to leave, but didn't leave yet) 
+`shy_roboy/state` | Int8 | 0: IDLE, 1: OCCURED, 2: SHOUT, 3: WATCH (an object / a person was altready asked to leave, but didn't leave yet) 
 
 
 # ros nodes
