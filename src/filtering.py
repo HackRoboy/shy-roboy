@@ -17,7 +17,7 @@ class States(Enum):
 	WATCH_PERSON = 3
 
 
-class TellPeopleToLeave(object):
+class DistanceFiltering(object):
 	def __init__(self):
 		self._state = States.IDLE
 		self._t = time.time()
@@ -60,6 +60,6 @@ class TellPeopleToLeave(object):
 		
 
 if __name__ == '__main__':
-	tptl = TellPeopleToLeave()
-	tptl.start_listener()
+	thething = DistanceFiltering()
+	thething.start_listener()
 	rospy.spin()
