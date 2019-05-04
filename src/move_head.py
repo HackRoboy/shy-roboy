@@ -3,8 +3,8 @@
 import rospy
 from std_msgs.msg import Float32
 
-idle_pos = 0
-max_pos = 10
+idle_pos = 0 # rad
+max_pos = 0.5 # rad
 start_threshold = 1.0
 axis = '1'
 

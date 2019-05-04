@@ -9,7 +9,7 @@ topic | datatype | description
 `shy_roboy/state` | Int8 | 0: IDLE, 1: OCCURED, 2: SHOUT, 3: WATCH
 
 
-# planned ros nodes
+# ros nodes
 
 - listening on the depth image and outputting one distance value
 - listening on the depth and shouting when below some threshold
