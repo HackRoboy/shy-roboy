@@ -10,6 +10,7 @@ threshold = 1.0
 delay_occur = 1.0
 delay_shout_again = 5.0
 
+
 class States(Enum):
 	IDLE = 0
 	PERSON_OCCURED = 1
