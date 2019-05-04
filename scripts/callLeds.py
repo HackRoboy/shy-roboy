@@ -12,6 +12,7 @@ last_publish_time = time.time()
 previous_state = 1
 
 def callback(data):
+    global last_publish_time, previous_state
     rospy.loginfo('Initializing and starting ' + ROS_PUBLISHER_NAME + ' topic.')
     
     # ROS publisher
