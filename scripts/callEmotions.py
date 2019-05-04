@@ -23,6 +23,7 @@ class EmotionReation(object):
     def call_emotion_service(self, emotion):
         try:
             response = self.face_emotion("emotion", emotion)
+            print(response)
         except rospy.ServiceException, e:
             print "Service call failed: %s" % e
 
