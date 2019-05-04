@@ -21,10 +21,12 @@ def callback(data):
 
     if (data.data == 2 or data.data == 3) and (time.time()-last_publish_time) > 6:
         rospy.loginfo('Sending change LED command.')
+        previous_state = data.data
         last_publish_time = time.time()
         publisher.publish(RED_AND_BLUE_LED)
     elif (data.data == 1 or data.data == 4) and (previous_state == 2 or previous_state == 3):
         rospy.loginfo('Sending turn off LED command.')
+        previous_state = data.data
         publisher.publish(SHUT_DOWN_LED)
 
 
