@@ -45,7 +45,7 @@ class TellPeopleToLeave(object):
 				newstate = SHOUT
 
 		if newstate != self._state:
-			rospy.loginfo('New state: {}'.format(newstate))
+			shout_node.getlogger().info('New state: {}'.format(newstate))
 
 		if newstate == States.SHOUT:
 			self.shout()
@@ -54,17 +54,16 @@ class TellPeopleToLeave(object):
 
 
 	def shout(self):
-		rospy.loginfo('\tSHOUT')
-		
-
-
-	def start_listener(self):
-		rospy.init_node('tell_people_to_leave')
-		rospy.Subscriber('shy_roboy/nearest_distance', Float32, self.process_distance_measure)
-
+		shout_node.getlogger().info('\tSHOUT')
+		        
 
 if __name__ == '__main__':
-	tptl = TellPeopleToLeave()
-	tptl.start_listener()
-	rospy.spin()
+    tptl = TellPeopleToLeave()
+    rclpy.init()
+    global shout_node = rclpy.create_node('tell_people_to_leave')
+    shout_node.create_subscription(Float32, 'shy_roboy/nearest_distance',  self.process_distance_measure)
+    while rclpy.ok()
+        rclpy.spin_once(shout_node)
+    shout_node.destroy_node()
+    rclpy.shutdown()
 

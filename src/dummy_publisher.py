@@ -32,4 +32,4 @@ if __name__ == '__main__':
     try:
         talker()
     except Exception as e:
-        print e
+        print(e)
