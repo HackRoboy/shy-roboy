@@ -49,13 +49,13 @@ class DistanceFiltering(object):
 		if newstate != self._state:
 			rospy.loginfo('New state: {}'.format(newstate))
 
-		self._publisher.publish(Int8(States(self._state.value)))
+		self._publisher.publish(Int8(self._state.value))
 		self._state = newstate
 
 	def start_listener(self):
 		rospy.init_node('shy_states')
 		self._publisher = rospy.Publisher('shy_roboy/state', Int8, queue_size=10)
-		self._publisher.publish (Int8(States(self._state.value)))
+		self._publisher.publish (Int8(self._state.value))
 		rospy.Subscriber('shy_roboy/nearest_distance', Float32, self.process_distance_measure)
 		
 
