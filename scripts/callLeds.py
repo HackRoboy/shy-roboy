@@ -1,3 +1,4 @@
+#!/usr/bin/env python
 import rospy
 from std_msgs.msg import Int32, Int8
 
@@ -11,9 +12,6 @@ def callback(data):
         
         # ROS publisher
         publisher = rospy.Publisher(ROS_PUBLISHER_NAME, Int32, queue_size=10)
-        
-        # Initialization
-        rospy.init_node('led_activate_led', anonymous=True)
 
         rospy.loginfo(ROS_PUBLISHER_NAME + ' topic has been initialized.')
 
