@@ -29,7 +29,7 @@ class EmotionReaction(object):
         # If state is SHOUT or WATCH_PERSON
         # Show angry face!
         if data.data in [2, 3]:
-            self.call_emotion_service("\"emotion: 'angry'\"")
+            self.face_emotion("angry")
 
     def call_emotion_service(self, emotion):
         try:

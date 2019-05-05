@@ -14,7 +14,7 @@ class MoveHead(object):
 		# and publisher to sphere_axis1/sphere_axis1/target
 		rospy.init_node('move_head')
 		rospy.Subscriber('shy_roboy/nearest_distance', Float32, self.process_distance_measure)
-		self._head_motion = rospy.Publisher('sphere_axis1/sphere_axis1/target'.format(axis), Float32, queue_size=1)
+                self._head_motion = rospy.Publisher('/sphere_head_axis0/sphere_head_axis0/target', Float32, queue_size=1)
 
 	def process_distance_measure(self, data):
 		# Calculate the angle in radians.
