@@ -3,7 +3,7 @@
 HackRoboy Spring 2019 project. Roboy avoids contact with people and tells them to leave.
 If they don't respect personal space, it even calls the police!
 
-# ROS topic
+# ROS topics
 
 topic | datatype | description
 --- | :---: | ---
