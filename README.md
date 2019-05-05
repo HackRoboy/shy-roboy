@@ -1,20 +1,24 @@
-# shy-roboy
+# Shy Roboy
+#### Always respect personal space!
 HackRoboy Spring 2019 project. Roboy avoids contact with people and tells them to leave.
+If they don't respect personal space, it even calls the police!
 
 # ROS topic
 
 topic | datatype | description
---- | --- | ---
+--- | :---: | ---
 `shy_roboy/nearest_distance` | Float32 | Mean of the closest points to camera (depends on the threshold)
-`shy_roboy/state` | Int8 | 0: IDLE, 1: OCCURED, 2: SHOUT, 3: WATCH (an object / a person was altready asked to leave, but didn't leave yet) 
+`shy_roboy/state` | Int8 | __IDLE:__ 0<br>__OCCURED:__ 1<br>__SHOUT:__ 2<br>__WATCH:__ 3
 
-# States
+# Program States
 
 <img src="images/roboy_state_machine.png">
 
 # ROS Nodes
 
-- listening on the depth image and outputting one distance value
-- listening on the depth and shouting when below some threshold
-- listening on the depth and moving head backwards proportional to some distance 
-- tbc
+- Listening on the depth image and outputting average distance of the closest objects.
+- Listening on the average distance and shouting when below some threshold.
+- Listening shouting and showing lights on LED.
+- Listening shouting and showing angry emotion.
+- Listening on the average distance and moving head backwards proportional to some distance.
+
