@@ -18,20 +18,18 @@ def process_state(data):
 
 def shout():
     global shout_node
-    shout_node.getlogger().info('\tSHOUT')
     client = shout_node.create_client(Talk,'roboy/cognition/speech/synthesis/talk')
     request = Talk.Request()
     request.text = "Please don't touch me"
+    print("Trying to shout. Hope someone hears me")
     future = client.call_async(request) 
     rclpy.spin_until_future_complete(shout_node, future)
 
-def main(args=None):
-    global shout_node
-    rclpy.init()
-    shout_node = rclpy.create_node('shouter')
-    shout_node.create_subscription(Int8, 'shy_roboy/state',  process_state)
-    while rclpy.ok():
-        rclpy.spin_once(shout_node)
-    shout_node.destroy_node()
-    rclpy.shutdown()
+rclpy.init()
+shout_node = rclpy.create_node('shouter')
+shout_node.create_subscription(Int8, 'shy_roboy/state',  process_state)
+while rclpy.ok():
+    rclpy.spin_once(shout_node)
+shout_node.destroy_node()
+rclpy.shutdown()
 
