@@ -23,7 +23,7 @@ def shout():
     request.text = "Please don't touch me"
     print("Trying to shout. Hope someone hears me")
     future = client.call_async(request) 
-    rclpy.spin_until_future_complete(shout_node, future)
+    #rclpy.spin_until_future_complete(shout_node, future)
 
 rclpy.init()
 shout_node = rclpy.create_node('shouter')

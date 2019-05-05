@@ -4,7 +4,7 @@ import rospy
 from std_msgs.msg import Float32
 
 idle_pos = 0 # in radians
-max_pos = -0.3 # in radians
+max_pos = -0.5 # in radians
 start_threshold = 1.0
 
 
