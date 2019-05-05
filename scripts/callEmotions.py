@@ -18,11 +18,11 @@ class EmotionReation(object):
         current_state = data.data
 
         if current_state in [2, 3]:
-            self.call_emotion_service('angry')
+            self.call_emotion_service("\"emotion: 'angry'\"")
 
     def call_emotion_service(self, emotion):
         try:
-            response = self.face_emotion("emotion", emotion)
+            response = self.face_emotion(emotion)
             print(response)
         except rospy.ServiceException, e:
             print "Service call failed: %s" % e
