@@ -18,9 +18,9 @@ Topic | Data Type | Description
 # ROS Nodes
 Script Name | Publishes | Subscribes | Description
 --- | :---: | :---: | ---
-`getCamImg.py`|`shy_roboy/nearest_distance` (Float32)|`/zed/zed_node/depth/depth_registered` (Image)|Reads depth image from ZED camera, applies threshold and calculates the average of the closest pixels.
-`filtering.py`|`shy_roboy/state` (Int8)|`shy_roboy/nearest_distance` (Float32)|Changes the state of program using the state machine above.
-`callLeds.py`|`/roboy/control/matrix/leds/mode/simple` (Int32)|`shy_roboy/state` (Int8)|Listens state and decides to change Roboy's LEDs accordingly.
-`callEmotions.py`|-|`shy_roboy/state` (Int8)|Listens state and changes Roboy's emotion to angry via `/roboy/cognition/face/emotion` service call.
-`move_head.py`|`sphere_axis1/sphere_axis1/target` (Float32)|`shy_roboy/nearest_distance` (Float32)|Listens `shy_roboy/nearest_distance` and calculates head movement angle in radians.
-`shouter.py`|-|`shy_roboy/state` (Int8)|Executes shouting task via `roboy/cognition/speech/synthesis/talk` service call.
+`getCamImg.py`|`/shy_roboy/nearest_distance` (Float32)|`/zed/zed_node/depth/depth_registered` (Image)|Reads depth image from ZED camera, applies threshold and calculates the average of the closest pixels.
+`filtering.py`|`/shy_roboy/state` (Int8)|`/shy_roboy/nearest_distance` (Float32)|Changes the state of program using the state machine above.
+`callLeds.py`|`/roboy/control/matrix/leds/mode/simple` (Int32)|`/shy_roboy/state` (Int8)|Listens state and decides to change Roboy's LEDs accordingly.
+`callEmotions.py`|-|`/shy_roboy/state` (Int8)|Listens state and changes Roboy's emotion to angry via `/roboy/cognition/face/emotion` service call.
+`move_head.py`|`/sphere_axis1/sphere_axis1/target` (Float32)|`/shy_roboy/nearest_distance` (Float32)|Listens `shy_roboy/nearest_distance` and calculates head movement angle in radians.
+`shouter.py`|-|`/shy_roboy/state` (Int8)|Executes shouting task via `/roboy/cognition/speech/synthesis/talk` service call.
