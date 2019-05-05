@@ -39,8 +39,8 @@ class LedReaction:
                 self.publisher.publish(self.red_and_blue_led)
             # and if we waited a while after last publish,
             # make LEDs blink red and blue.
-            elif (time.time() - last_publish_time) > self.sleep_time_after_execution:
-                rospy.loginfo('Sending change LED command.
+            elif (time.time() - self.last_publish_time) > self.sleep_time_after_execution:
+                rospy.loginfo('Sending change LED command.')
                 self.previous_state = data.data
                 self.last_publish_time = time.time()
                 self.publisher.publish(self.red_and_blue_led)
@@ -50,7 +50,7 @@ class LedReaction:
                 self.previous_state = 1
             # and if we used LEDs previously,
             # turn them off.
-            elif previous_state == 2 or previous_state == 3:
+            elif self.previous_state == 2 or self.previous_state == 3:
                 rospy.loginfo('Sending turn off LED command.')
                 self.previous_state = data.data
                 self.publisher.publish(self.shut_down_led)
