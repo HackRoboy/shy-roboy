@@ -8,8 +8,11 @@ topic | datatype | description
 `shy_roboy/nearest_distance` | Float32 | Mean of the closest points to camera (depends on the threshold)
 `shy_roboy/state` | Int8 | 0: IDLE, 1: OCCURED, 2: SHOUT, 3: WATCH (an object / a person was altready asked to leave, but didn't leave yet) 
 
+# States
 
-# ros nodes
+<img src="images/roboy_state_machine.png">
+
+# ROS Nodes
 
 - listening on the depth image and outputting one distance value
 - listening on the depth and shouting when below some threshold
