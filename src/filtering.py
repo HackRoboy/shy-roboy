@@ -37,7 +37,6 @@ class DistanceFiltering(object):
 
 	def process_distance_measure(self, data):
 		distance = data.data
-
 		newstate = self._state
 
 		# If state is IDLE
