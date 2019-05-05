@@ -8,7 +8,7 @@ List of ROS topics that we publish.
 
 Topic | Data Type | Description
 --- | :---: | ---
-`shy_roboy/nearest_distance`|Float32|Average value of the closest points to camera which are closer than threshold (in meters)
+`shy_roboy/nearest_distance`|Float32|Average value of the closest points to camera which are closer than threshold (in meters).
 `shy_roboy/state`|Int8|__IDLE:__ 0<br>__OCCURED:__ 1<br>__SHOUT:__ 2<br>__WATCH:__ 3
 
 # Program States
@@ -22,5 +22,5 @@ Script Name | Publishes | Subscribes | Description
 `filtering.py`|`shy_roboy/state` (Int8)|`shy_roboy/nearest_distance` (Float32)|Changes the state of program using the state machine above.
 `callLeds.py`|`/roboy/control/matrix/leds/mode/simple` (Int32)|`shy_roboy/state` (Int8)|Listens state and decides to change Roboy's LEDs accordingly.
 `callEmotions.py`|-|`shy_roboy/state` (Int8)|Listens state and changes Roboy's emotion to angry via `/roboy/cognition/face/emotion` service call.
-`move_head.py`|`sphere_axis1/sphere_axis1/target` (Float32)|`shy_roboy/nearest_distance` (Float32)|Listens shy_roboy/nearest_distance and calculates head movement angle in radians.
+`move_head.py`|`sphere_axis1/sphere_axis1/target` (Float32)|`shy_roboy/nearest_distance` (Float32)|Listens `shy_roboy/nearest_distance` and calculates head movement angle in radians.
 `shouter.py`|-|`shy_roboy/state` (Int8)|Executes shouting task via `roboy/cognition/speech/synthesis/talk` service call.
