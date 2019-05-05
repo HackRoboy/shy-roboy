@@ -24,3 +24,10 @@ Script Name | Publishes | Subscribes | Description
 `callEmotions.py`|-|`/shy_roboy/state` (Int8)|Listens state and changes Roboy's emotion to angry via `/roboy/cognition/face/emotion` service call.
 `move_head.py`|`/sphere_axis1/sphere_axis1/target` (Float32)|`/shy_roboy/nearest_distance` (Float32)|Listens `/shy_roboy/nearest_distance` and calculates head movement angle in radians.
 `shouter.py`|-|`/shy_roboy/state` (Int8)|Executes shouting task via `/roboy/cognition/speech/synthesis/talk` service call.
+
+# Members
+
+- [bilalvur](https://github.com/bilalvur)
+- [rfn123](https://github.com/rfn123)
+- [stlukyanenko](https://github.com/stlukyanenko)
+- [aaarne](https://github.com/aaarne)
