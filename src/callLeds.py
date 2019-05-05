@@ -45,7 +45,7 @@ class LedReaction:
                 self.last_publish_time = time.time()
                 self.publisher.publish(self.red_and_blue_led)
         # If state is IDLE or PERSON_OCCURED
-        elif data.data == 1 or data.data == 4:
+        elif data.data == 1 or data.data == 0:
             if self.previous_state is None:
                 self.previous_state = 1
             # and if we used LEDs previously,
